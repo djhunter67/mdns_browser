@@ -72,7 +72,7 @@ async fn run(
         App::new()
             .wrap(middleware::Logger::default())
             .wrap(middleware::Compress::default())
-            // .wrap(middleware::DefaultHeaders::new().add(("X-Version", env!("CARGO_PKG_VERSION")))) // Security
+            .wrap(middleware::DefaultHeaders::new().add(("X-Version", env!("CARGO_PKG_VERSION")))) // Security
             .app_data(db_redis.clone())
             .app_data(db_postgres.clone())
             .app_data(db_mongo.clone())
