@@ -3,17 +3,15 @@ use std::path::PathBuf;
 use actix_files::NamedFile;
 use actix_web::{get, HttpResponse, Responder};
 use askama::Template;
+use mdns_scanner::ServiceDetect;
 use tracing::{error, info, instrument};
 
 #[derive(Template)]
 #[template(path = "index.html")]
 pub struct IndexTemplate<'a> {
     pub title: &'a str,
-    pub content: Vec<&'a str>,
+    pub scan_types: Box<[ServiceDetect]>,
     pub version: &'a str,
-    pub github: &'a str,
-    pub linkedin: &'a str,
-    pub source_url: &'a str,
 }
 
 #[derive(Template)]

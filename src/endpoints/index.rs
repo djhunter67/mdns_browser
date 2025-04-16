@@ -11,6 +11,7 @@ use actix_web::{
 };
 use askama::Template;
 use futures::stream;
+use mdns_scanner::ServiceDetect;
 use tracing::{info, instrument};
 
 use super::templates::IndexTemplate;
@@ -28,11 +29,8 @@ pub async fn index() -> HttpResponse {
 
     let var_name = IndexTemplate {
         title: "Home",
-        content: vec!["friendly", "messages"],
+        scan_types: Box::new(ServiceDetect::to_iter()),
         version,
-        linkedin: "https://www.linkedin.com/in/christerpher",
-        github: "https://github.com/djhunter67",
-        source_url: "https://christerpher.com",
     };
 
     let rendered = var_name.render().expect("Failed to render template");
@@ -44,6 +42,7 @@ pub async fn index() -> HttpResponse {
         .body(rendered)
 }
 
+#[allow(clippy::future_not_send)]
 pub async fn sse(_req: HttpRequest) -> impl Responder {
     let mut counter: usize = 5;
 
