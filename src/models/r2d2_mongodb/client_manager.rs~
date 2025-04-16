@@ -1,0 +1,35 @@
+use r2d2::ManageConnection;
+use mongodb::{Client, options::ClientOptions, error::Error};
+
+/// Struct for managing a pool of MongoDB connections
+/// Managed object: `mongodb::Client`
+pub struct ClientManager(ClientOptions);
+
+impl ClientManager {
+    pub fn new(options: ClientOptions) -> ClientManager {
+        ClientManager(options)
+    }
+
+    pub fn from_uri(uri: &str) -> Result<ClientManager, Error> {
+        Ok(ClientManager(ClientOptions::parse(uri)?))
+    }
+}
+
+impl ManageConnection for ClientManager {
+    type Connection = Client;
+    type Error = Error;
+
+    fn connect(&self) -> Result<Client, Error> {
+        Client::with_options(self.0.clone())
+    }
+
+    fn is_valid(&self, _client: &mut Client) -> Result<(), Error> {
+        // TODO
+        Ok(())
+    }
+
+    fn has_broken(&self, _client: &mut Client) -> bool {
+        // TODO
+        false
+    }
+}

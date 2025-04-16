@@ -1,0 +1,81 @@
+{% extends "base.html" %} {% block title %} {{ title }} {{ version  }} {% endblock %} {% block head %} {% endblock %} {% block individual_page_contents %}
+
+<div id="landing">
+  <nav id="landing__nav">
+    <section id="landing__nav__left">
+      <a href="{{ source_url }}" target="_blank">
+	<h1>{{ title }} {{ version }}</h1>
+      </a>
+    </section>
+    
+    <section id="landing__nav__right">
+      <a href="{{ github }}" target="_blank">Project</a>
+    </section>
+  </nav>
+
+  <section id="landing__splash">
+    <div id="landing__splash__headshot">
+      <figure>
+	<a href="/prof_headshot" target="_blank">
+	  <img src="/prof_headshot" alt="Professional Headshot" width="450px" height="300px">
+	  </a>
+      </figure>
+    </div>
+    <aside id="landing__splash__name">
+      <h2>HUNTER</h2>
+      <h3>CHRISTERPHER</h3>
+    </aside>
+  </section>
+
+  <section id="landing__about">
+    <figure>
+      <a href="/usmc_patrolling" target="_blank">
+	<img src="/usmc_patrolling" alt="USMC Patrolling" width="450" height="300">
+      </a>
+    </figure>
+
+    <div id="landing__about__text">
+      <h2>ABOUT</h2>
+      <p>
+	A testament to my technical acumen is my self-installed and maintained 10Gbps home network, a project that reflects my dedication to pushing the boundaries of what's possible. Building and optimizing this network has allowed me to blend creativity with technicality, resulting in an environment where high-speed data transfer meets reliability. My journey has been uniquely enriched by my eight-year, honorable, service in the United States Marine Corps, where I held roles as an infantry machine gunner and later as an Infantry Combat Instructor. This background instilled in me a relentless work ethic, an unwavering attention to detail, and the ability to lead with authority and empathy—a foundation that seamlessly translates into my approach to technology. Transitioning from the military, I embarked on a path of education, earning an Electrical Engineering Degree from Arizona State University. Throughout my studies, my fascination with programming languages flourished. From the structured rigor of Java to the dynamic flexibility of Python, I embraced the nuances of various languages. My proficiency extends beyond theory; I have coded in Rust, drawing parallels to my Java experience and expanding my coding repertoire. My journey in software development has been shaped by my pursuit of knowledge. A graduate course I attended at NOVA Southeastern delved into the depths of Agile methodologies, Scrum practices, and Test-driven development. This exposure fortified my understanding of the intricacies involved in effective software development, allowing me to engineer solutions that are both efficient and resilient. As I chart the course for my future, I am resolute in my commitment to innovation, continual learning, and technological excellence. My unique blend of experiences—rooted in military discipline, honed through education, and exemplified by my IT pursuits—sets the stage for a future where I thrive at the intersection of technology, leadership, and creativity.
+      </p>
+    </div>
+  </section>
+
+  <section id="landing__contact">
+    <div id="landing__contact__info">
+      <h2>CONTACT</h2>
+      
+      <p>Hunter, Christerpher</p>
+
+      <email>djhunter67@gmail.com</email>
+
+    </div>
+
+    <div id="landing__contact__image">
+      <a href="/hackathon" target="_blank">
+	<img src="/hackathon" alt="Hackathon Win" width="300px" height="350px">
+      </a>
+    </div>
+
+    <aside id="landing__contact__links">
+      <a href="{% if !github.is_empty() %}
+	       {{ github }}
+	       {% else %}
+	       #
+	       {% endif %}"
+	 target="_blank">
+	<img src="/github" alt="GitHub" width="50px" height="50px">
+      </a>
+      <a href="{% if !linkedin.is_empty() %}
+	       {{ linkedin }}
+	       {% else %}
+	       #
+	       {% endif %}"
+	 target="_blank">
+	    <img src="/linkedin" alt="LinkedIn" width="50px" height="50px">
+      </a>
+    </aside>
+  </section>
+</div>
+{% call super() %} {% endblock %}

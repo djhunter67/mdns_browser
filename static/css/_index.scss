@@ -1,0 +1,167 @@
+#landing {
+    grid-column: 2 / 5;
+    grid-row: span 4;
+    display: grid;
+    grid-template-rows: subgrid;
+    // grid-template-columns: subgrid;
+    max-height: 100%;
+    contain: content;
+
+    &__nav {
+	grid-row: 1 / 2;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 0;
+	// background-color: red;
+	// height: 80%;
+
+	&__left {
+	    align-self: flex-start;
+	    font-size: 2rem;
+	    padding: 0 1rem;
+	}
+
+	&__right {
+	    padding: 0 1rem;
+	    align-self: flex-end;
+	    font-size: 2rem;
+	}
+    }
+
+    &__splash {
+	grid-row: 2 / 3;
+	// grid-column: span 5;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	// hsl white
+	background-color: hsl(0, 0%, 100%);
+	border-radius: 2rem;
+	// margin-bottom: 5rem;
+
+
+	&__headshot {
+	    height: 100%;
+	    padding: 2rem;
+	    
+	    figure {
+		
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+
+		img {
+		    border-radius: 2rem;
+		}
+	    }
+	}
+
+	&__name {
+	    color: hsl(0, 0%, 0%);
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: flex-end;
+	    align-items: center;
+	    width: 50%;
+	    height: 100%;
+	    padding-right: 1rem;
+
+	    h2 {
+		font-size: 8rem;
+	    }
+
+	    h3 {
+		font-size: 5rem;
+	    }
+	}
+    }
+
+    &__about {
+    	grid-row: 3 / 4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+
+	figure {
+	    width: 50%;
+	    height: 100%;
+	    object-fit: contain;
+
+	    img {
+		border-radius: 2rem;
+	    }
+	}
+
+	&__text {
+	    line-height: 1.1;
+	    font-size: 1.5rem;
+	    width: 75%;
+	    height: 100%;
+	    padding: 2rem;
+	}
+    }
+
+    &__contact {
+	grid-row: 4 / 5;
+	display: grid;
+	grid-template-columns: 1fr 0.25fr 1fr;
+	grid-template-rows: 1fr;
+	contain: content;
+
+	
+
+	&__info {
+	    
+	    grid-column: 1 / 2;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-items: center;
+	    gap: 1rem;
+	    
+	    h2 {
+		font-size: 2.5rem;
+	    }
+
+	    p {
+		font-size: 1.5rem;
+	    }
+
+	    email {
+	    	font-size: 1.5rem;
+	    }
+
+	}
+
+	&__image {
+	    outline: 1px solid black;
+	    grid-column: 3 / 4;
+	    grid-row: span 2;
+	    width: 100%;
+	    height: 100%;
+	    contain: content;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-items: center;
+
+	    a{ 
+		img {
+		    border-radius: 2rem;
+		}
+	    }
+	}
+
+	&__links {
+	    grid-column: 2 / 3;
+	    display: flex;
+	    justify-content: space-evenly;
+	    align-items: center;
+	    width: 100%;
+	    height: 50%;
+	    // background-color: orange;
+	}
+    }
+}

@@ -1,0 +1,13 @@
+application:
+  protocol: http
+  host: 0.0.0.0
+  base_url: "http://127.0.0.1"
+
+debug: true
+
+secret:
+  secret_key: ""
+  token_expiration: 1
+  hmac_secret: ""
+
+frontend_url: "http://localhost:9001"
