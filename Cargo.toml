@@ -58,7 +58,7 @@ tracing = "0.1.41"
 tracing-subscriber = { version = "0.3.19", features = ["env-filter", "json"] }
 mongodb = "3.2.0"
 futures = "0.3.31"
-mdns_scanner = { version = "0.2.0", path = "../mdns_scanner" }
+mdns_scanner = { version = "0.3.0", path = "../mdns_scanner" }
 
 [dev-dependencies]
 rstest = "0.24.0"

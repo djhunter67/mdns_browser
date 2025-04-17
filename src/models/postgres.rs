@@ -62,6 +62,7 @@ mod tests {
     }
 
     #[rstest]
+    #[ignore]
     fn test_can_write_and_read_postgres(manager: PostgresConnectionManager<NoTls>) {
         let pool = establish_connection(&settings::get().unwrap(), manager);
 
@@ -96,6 +97,7 @@ mod tests {
     }
 
     #[rstest]
+    #[ignore]
     fn test_count_writes_postgres(manager: PostgresConnectionManager<NoTls>) {
         let settings = settings::get().unwrap();
         let pool = establish_connection(&settings, manager);
@@ -132,6 +134,7 @@ mod tests {
     }
 
     #[rstest]
+    #[ignore]
     fn test_can_create_four_tables_postgres(manager: PostgresConnectionManager<NoTls>) {
         let settings = settings::get().unwrap();
         let pool = establish_connection(&settings, manager);

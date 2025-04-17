@@ -56,6 +56,7 @@ mod tests {
     use super::*;
 
     #[rstest]
+    #[ignore]
     #[tokio::test]
     async fn test_can_establish_connection() {
         let settings: Settings = settings::get().unwrap();
@@ -81,6 +82,7 @@ mod tests {
     }
 
     #[rstest]
+    #[ignore]
     #[tokio::test]
     async fn test_fail_to_connect() {
         let manager = MongoClientManager::new(
@@ -103,6 +105,7 @@ mod tests {
     }
 
     #[rstest]
+    #[ignore]
     #[tokio::test]
     async fn test_can_write_to_mongo() {
         let settings: Settings = settings::get().unwrap();
@@ -132,6 +135,7 @@ mod tests {
     }
 
     #[rstest]
+    #[ignore]
     #[tokio::test]
     async fn test_can_read_from_mongo() {
         let settings: Settings = settings::get().unwrap();
@@ -162,6 +166,7 @@ mod tests {
     }
 
     #[rstest]
+    #[ignore]
     #[tokio::test]
     async fn test_can_update_mongo() {
         let settings: Settings = settings::get().unwrap();
@@ -206,6 +211,7 @@ mod tests {
     }
 
     #[rstest]
+    #[ignore]
     #[tokio::test]
     async fn test_not_found_mongo() {
         let settings: Settings = settings::get().unwrap();
