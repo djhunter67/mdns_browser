@@ -3,7 +3,7 @@ use std::path::PathBuf;
 use actix_files::NamedFile;
 use actix_web::{get, HttpResponse, Responder};
 use askama::Template;
-use mdns_scanner::ServiceDetect;
+use mdns_scanner::{Service, ServiceDetect};
 use tracing::{error, info, instrument};
 
 #[derive(Template)]
@@ -12,6 +12,13 @@ pub struct IndexTemplate<'a> {
     pub title: &'a str,
     pub scan_types: Box<[ServiceDetect]>,
     pub version: &'a str,
+}
+
+#[derive(Template)]
+#[template(path = "parts/scan_results.html")]
+pub struct ScanResult<'a> {
+    pub scan_domain: &'a str,
+    pub results: Vec<Service>,
 }
 
 #[derive(Template)]

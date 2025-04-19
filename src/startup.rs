@@ -1,4 +1,4 @@
-use crate::endpoints::{health, index, templates};
+use crate::endpoints::{health, index, scan, templates};
 use crate::models::r2d2_mongodb::client_manager::MongoClientManager;
 use crate::settings::Settings;
 use actix_web::web::{self, Data};
@@ -90,6 +90,7 @@ async fn run(
             .service(templates::github)
             .service(templates::linkedin)
             .service(index::index)
+            .service(scan::scan_tech)
             .service(health::health_check)
             .route("/sse", web::get().to(index::sse))
     })

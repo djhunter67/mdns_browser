@@ -1,0 +1,30 @@
+#results {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+
+    h2 {
+	font-size: 2rem;
+	margin: 1dvw;
+    }
+
+    .result {
+	width: 100%;
+	color: white;
+	padding: 1rem;
+	margin: 0.25rem;
+	display: block;
+	border-bottom: 1px solid black;
+	
+
+	p {
+	    font-size: 1dvw;
+	    margin: auto;
+	    inline-size: 80%;
+	    text-align: center;
+	    text-wrap: balance;
+	}
+    }
+}

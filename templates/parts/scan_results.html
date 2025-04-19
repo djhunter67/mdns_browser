@@ -1,0 +1,13 @@
+<div id="results">
+  <h2>{{ scan_domain }}</h2>
+  {% for result in results %}
+  <aside class="result">
+    <p>{{ result.name() }}</p>
+    <p>IP: {{ result.address() }}</p>
+    <p>{{ result.port() }}</p>
+    <p>{{ result.hostname() }}</p>
+    <br>
+    <br>
+  </aside>
+  {% endfor %}
+</div>

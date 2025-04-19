@@ -17,7 +17,10 @@ pub fn get_subcriber(debug: bool) -> impl tracing::Subscriber + Send + Sync {
     let env_filter =
         EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new(env_filter));
 
-    let stdout_log = tracing_subscriber::fmt::layer().pretty();
+    let stdout_log = tracing_subscriber::fmt::layer()
+        .compact()
+        .without_time()
+        .pretty();
     let subscriber = Registry::default().with(env_filter).with(stdout_log);
 
     let json_log = if debug {
