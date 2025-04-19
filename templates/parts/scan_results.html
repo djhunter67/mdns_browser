@@ -3,9 +3,9 @@
   {% for result in results %}
   <aside class="result">
     <h3>{{ result.name() }}</h3>
-    <span><h4>IP:</h4><p>{{ result.address() }}</p></span>
-    <span><h4>PORT:</h4><p> {{ result.port() }}</p></span>
-    <span><h4>HOSTNAME:</h4><p> {{ result.hostname() }}</p></span>
+    <h4>IP:</h4><p>{{ result.address() }}</p>
+    <h4>PORT:</h4><p> {{ result.port() }}</p>
+    <h4>HOSTNAME:</h4><p> {{ result.hostname() }}</p>
   </aside>
   {% endfor %}
 </div>
