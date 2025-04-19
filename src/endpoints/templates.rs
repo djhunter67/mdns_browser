@@ -27,7 +27,7 @@ pub struct ErrorPage<'a> {
     pub title: &'a str,
     pub code: u32,
     pub error: &'a str,
-    pub message: &'a str,
+    pub verbose_message: &'a str,
 }
 
 impl<'a> ErrorPage<'a> {
@@ -37,7 +37,7 @@ impl<'a> ErrorPage<'a> {
             title: "Error",
             code: 500,
             error: "Internal Server Error",
-            message,
+            verbose_message: message,
         }
     }
 }

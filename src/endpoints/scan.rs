@@ -4,7 +4,7 @@ use actix_web::{
     web, HttpResponse,
 };
 use askama::Template;
-use mdns_scanner::{mdns_scan, ServiceDetect};
+use mdns_scanner::{mdns_scan, Service, ServiceDetect};
 use tracing::{error, info, instrument};
 
 use crate::endpoints::templates::{ErrorPage, ScanResult};
@@ -29,16 +29,21 @@ pub async fn scan_tech(tech_to_scan: web::Path<String>) -> HttpResponse {
         Ok(res) => res,
         Err(err) => {
             error!("Scan result error or no results: {err}");
-            vec![]
+            vec![Service::error(err)]
         }
     };
 
-    if scan.is_empty() {
+    if scan
+        .first()
+        .expect("Scan result error or no results")
+        .name()
+        .contains("err")
+    {
         let error_template = ErrorPage {
-            title: "Scan Error",
+            title: &scan.first().expect("No error to parse").name(),
             code: u32::from(StatusCode::INTERNAL_SERVER_ERROR.as_u16()),
             error: "Scan Error",
-            message: "No results found for the specified technology.",
+            verbose_message: "No results found for the specified technology.",
         };
         return HttpResponse::InternalServerError()
             .content_type(ContentType::html())
