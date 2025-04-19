@@ -2,12 +2,10 @@
   <h2>{{ scan_domain }}</h2>
   {% for result in results %}
   <aside class="result">
-    <p>{{ result.name() }}</p>
-    <p>IP: {{ result.address() }}</p>
-    <p>{{ result.port() }}</p>
-    <p>{{ result.hostname() }}</p>
-    <br>
-    <br>
+    <h3>{{ result.name() }}</h3>
+    <span><h4>IP:</h4><p>{{ result.address() }}</p></span>
+    <span><h4>PORT:</h4><p> {{ result.port() }}</p></span>
+    <span><h4>HOSTNAME:</h4><p> {{ result.hostname() }}</p></span>
   </aside>
   {% endfor %}
 </div>

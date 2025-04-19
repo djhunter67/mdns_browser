@@ -14,24 +14,6 @@
 	margin: 3dvh 0;
     }
     
-    &__selectors {
-	align-self: center;
-	justify-self: center;
-	grid-column: 2 / 3;
-	grid-row: 2 / 3;
-	border: 1px solid hsl(265, 80%, 50%);
-	border-radius: 5px;
-	background-color: hsl(165, 100%, 50%);
-	padding: 1dvh;
-	width: 400px;
-	margin: 4dvh 0;
-
-	select {
-	    font-size: xx-large;
-	    font-weight: bolder;    
-	}
-    }
-
     &__container {
 	grid-column: 1 / 4;
 	grid-row: 3 / span 2;

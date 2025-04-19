@@ -14,10 +14,18 @@
 	width: 100%;
 	color: white;
 	padding: 1rem;
-	margin: 0.25rem;
 	display: block;
 	border-bottom: 1px solid black;
-	
+
+	h3 {
+	    text-wrap-mode: text-wrap;
+	}
+	h4 {
+	    text-align: start;
+	    font-weight: bolder;
+	    text-decoration: underline;
+	    color: black;
+	}
 
 	p {
 	    font-size: 1dvw;

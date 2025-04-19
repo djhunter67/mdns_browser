@@ -2,20 +2,6 @@
 
 <div id="landing">
   <h1>Get to know your mDns</h1>
-  <aside id="landing__selectors">
-    <select>
-      <option selected disabled>SCAN TYPE</option>
-      {% for opt in scan_types %}
-      <option value="{{ opt }}">{{ opt }}</option>
-      {% endfor %}
-    </select>
-    <select>
-      <option selected disabled>SCAN TIME</option>
-      {% for num in 0..scan_types.len() %}
-      <option value="{{ num }}">{{ num }}</option>
-      {% endfor %}
-    </select>
-  </aside>
   <section id="landing__container">
     {% for opt in 0..scan_types.len() %}
     <div
