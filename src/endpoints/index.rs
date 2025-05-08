@@ -35,8 +35,6 @@ pub async fn index() -> HttpResponse {
 
     let rendered = var_name.render().expect("Failed to render template");
 
-    // qs.await;
-
     HttpResponse::Ok()
         .content_type(ContentType::html())
         .body(rendered)

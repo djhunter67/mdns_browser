@@ -31,7 +31,7 @@ $light-yellow: hsl(60, 100%, 90%);
     grid-template-columns: 65px 1fr 1fr 1fr 65px;
     grid-template-rows:  0.75fr 1fr 1fr 1fr;
     align-content: end;
-    min-height: 100vh;
+    height: 100vh;
     background-color: $black;
 }
 

@@ -1,8 +1,4 @@
-use actix_web::{
-    get,
-    http::{header::ContentType, StatusCode},
-    web, HttpResponse,
-};
+use actix_web::{get, http::header::ContentType, web, HttpResponse};
 use askama::Template;
 use mdns_scanner::{mdns_scan, Service, ServiceDetect};
 use tracing::{error, info, instrument};
@@ -33,18 +29,12 @@ pub async fn scan_tech(tech_to_scan: web::Path<String>) -> HttpResponse {
         }
     };
 
-    if scan
-        .first()
-        .expect("Scan result error or no results")
-        .name()
-        .contains("err")
-    {
-        let error_template = ErrorPage {
-            title: &scan.first().expect("No error to parse").name(),
-            code: u32::from(StatusCode::INTERNAL_SERVER_ERROR.as_u16()),
-            error: "Scan Error",
-            verbose_message: "No results found for the specified technology.",
-        };
+    if let Some(scan) = scan.first() {
+        info!("successful scan: {scan:#?}");
+    } else {
+        let fail_print = &format!("No results found for {tech_to_scan}.");
+        let error_template = ErrorPage::new(fail_print);
+
         return HttpResponse::InternalServerError()
             .content_type(ContentType::html())
             .body(
@@ -53,6 +43,7 @@ pub async fn scan_tech(tech_to_scan: web::Path<String>) -> HttpResponse {
                     .expect("Failed to render ERROR template"),
             );
     }
+
     let var_name = ScanResult {
         scan_domain: &tech_to_scan.into_inner(),
         results: scan,
@@ -61,10 +52,4 @@ pub async fn scan_tech(tech_to_scan: web::Path<String>) -> HttpResponse {
     HttpResponse::Ok()
         .content_type(ContentType::html())
         .body(rendered)
-
-    // let rendered = var_name.render().expect("Failed to render template");
-
-    // HttpResponse::Ok()
-    //     .content_type(ContentType::html())
-    //     .body(rendered)
 }
